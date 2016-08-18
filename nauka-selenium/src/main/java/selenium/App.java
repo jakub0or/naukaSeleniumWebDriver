@@ -1,13 +1,30 @@
 package selenium;
 
-/**
- * Hello world!
- *
- */
-public class App 
+
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class App
 {
-    public static void main( String[] args )
+    private static WebDriver driver;
+
+    @BeforeClass
+    public static void setUp(){
+        ChromeDriverManager.getInstance().setup();
+        driver = new ChromeDriver();
+    }
+
+    @Test
+    public  void main( )
     {
-        System.out.println( "Hello World!" );
+        driver.get("http://google.pl");
+    }
+
+    @AfterClass
+    public static void after(){
+        //driver.close();
     }
 }
