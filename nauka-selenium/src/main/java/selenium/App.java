@@ -1,30 +1,14 @@
 package selenium;
-
-
+//App.java
 import io.github.bonigarcia.wdm.ChromeDriverManager;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-public class App
-{
-    private static WebDriver driver;
-
-    @BeforeClass
-    public static void setUp(){
-        ChromeDriverManager.getInstance().setup();
-        driver = new ChromeDriver();
-    }
-
-    @Test
-    public  void main( )
-    {
-        driver.get("http://google.pl");
-    }
-
-    @AfterClass
-    public static void after(){
-        //driver.close();
+        import org.openqa.selenium.WebDriver;
+        import org.openqa.selenium.chrome.ChromeDriver;
+        import org.testng.annotations.Test;
+public class App {
+    @Test(description="Pierwszy test!")
+    public void openSite() {
+        ChromeDriverManager.getInstance().setup(); //inicjalizacja drivera przegladarki Chrome. Korzystamy z biblioteki webdriver manager
+        WebDriver  driver = new ChromeDriver(); //utworzenie obiektu drivera
+        driver.get("http://www.google.pl");
     }
 }
